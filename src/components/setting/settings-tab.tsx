@@ -39,7 +39,6 @@ export default function SettingsTab({ user }: { user: UserType }) {
       formData.append("avatar", data.avatar[0]);
     }
 
-    console.log("submit", data);
     // send to api
     // todo
   };

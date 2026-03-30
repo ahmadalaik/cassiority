@@ -12,8 +12,6 @@ export default function CategoriesPage() {
   const categoryColumns = useCategoriesColumns();
   const { data: categories, isLoading } = useCategories();
 
-  console.log("Categories data: ", categories);
-
   // if (error) {
   //   console.error("Zod or Network Error:", error);
   //   return <div>Error: {error.message}</div>;

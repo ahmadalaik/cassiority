@@ -19,7 +19,6 @@ import { useAuthActions } from "@/hooks/use-auth";
 import { type Register, registerSchema } from "@/schema/register";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Loader2 } from "lucide-react";
-import { useEffect } from "react";
 import { Controller, useForm } from "react-hook-form";
 import { Link } from "react-router-dom";
 
@@ -36,17 +35,8 @@ export default function Register() {
   });
 
   const onSubmit = async (data: Register) => {
-    console.log("Register: ", data);
     await registerMutation.mutateAsync(data);
   };
-
-  useEffect(() => {
-    document.body.classList.remove("bg-sidebar");
-
-    return () => {
-      document.body.classList.add("bg-sidebar");
-    };
-  }, []);
 
   return (
     <div className="flex min-h-svh w-full items-center justify-center">

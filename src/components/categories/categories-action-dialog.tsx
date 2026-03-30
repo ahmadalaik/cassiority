@@ -42,22 +42,16 @@ export default function CategoriesActionDialog() {
   });
 
   const onSubmit = async (data: CreateCategory | UpdateCategory) => {
-    try {
-      if (!currentRow) {
-        console.log("submit data", data);
-        await createCategory.mutateAsync(data);
-      }
-
-      if (currentRow) {
-        console.log("updating category with ID: ", currentRow.id, " data: ", data);
-        await updateCategory.mutateAsync({ ...data, id: currentRow.id });
-      }
-
-      form.reset();
-      handleClose(isOpen);
-    } catch (err) {
-      console.log(err);
+    if (!currentRow) {
+      await createCategory.mutateAsync(data);
     }
+
+    if (currentRow) {
+      await updateCategory.mutateAsync({ ...data, id: currentRow.id });
+    }
+
+    form.reset();
+    handleClose(isOpen);
   };
 
   return (

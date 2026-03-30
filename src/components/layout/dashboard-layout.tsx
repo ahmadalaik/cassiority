@@ -2,15 +2,8 @@ import { Outlet } from "react-router-dom";
 import { AppSidebar } from "../app-sidebar";
 import { SidebarInset, SidebarProvider } from "../ui/sidebar";
 import Header from "./header";
-import { useEffect } from "react";
 
 export default function DashboardLayout() {
-  useEffect(() => {
-    document.body.classList.add("bg-sidebar");
-
-    return () => document.body.classList.remove("bg-sidebar");
-  }, []);
-
   return (
     <SidebarProvider
       style={

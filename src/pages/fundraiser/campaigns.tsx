@@ -9,7 +9,6 @@ import { useFundraiserCampaigns } from "@/hooks/fundraiser/use-fundraiser-campai
 
 export default function FundraiserCampaignsPage() {
   const { data: campaigns, isLoading } = useFundraiserCampaigns();
-  console.log("data: ", campaigns);
 
   return (
     <>

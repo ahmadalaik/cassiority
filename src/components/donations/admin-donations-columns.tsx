@@ -24,8 +24,6 @@ export function useAdminDonationsColumns(): ColumnDef<Donation>[] {
   const { mutateAsync } = updateDonation;
 
   const handleActions = async (id: number, status: "success" | "failed") => {
-    console.log("actions: ", id, " ", status);
-
     await mutateAsync({ id, status });
   };
 

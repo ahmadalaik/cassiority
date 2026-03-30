@@ -55,8 +55,6 @@ export default function CampaignsGridView({ data }: { data: Campaign[] }) {
 
         const daysLeft: number = Math.ceil(diffInMs / (1000 * 60 * 60 * 24));
 
-        console.log("debug current amount: ", typeof campaign.targetAmount);
-
         return (
           <Card key={campaign.id} className="w-full pt-0">
             <CardContent className="relative px-0">
@@ -115,7 +113,10 @@ export default function CampaignsGridView({ data }: { data: Campaign[] }) {
                   {formatCurrency(campaign.currentAmount)}
                 </span>
                 <div className="text-muted-foreground">
-                  {progress}% of <span className="font-semibold">{formatCurrency(campaign.targetAmount)}</span>
+                  {progress}% of{" "}
+                  <span className="font-semibold">
+                    {formatCurrency(campaign.targetAmount)}
+                  </span>
                 </div>
               </div>
               <Progress value={Number(progress)} />

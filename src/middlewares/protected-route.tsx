@@ -9,10 +9,6 @@ export default function ProtectedRoute({ allowedRoles }: { allowedRoles: string[
   const setUser = useAuthStore((state) => state.setUser);
   const location = useLocation();
 
-  console.log("user: ", user);
-  console.log("roles: ", allowedRoles.includes(user?.role));
-  console.log("roles: ", allowedRoles.includes("user"));
-
   useEffect(() => {
     if (user && user.role !== authStoreUser.role) {
       setUser({ ...authStoreUser, role: user.role });

@@ -13,7 +13,6 @@ import { cn, formatCurrency } from "@/lib/utils";
 
 export default function CampaignsViewDialog() {
   const { open, currentRow: campaign, setOpen, setCurrentRow } = useCampaignStore();
-  console.log(campaign);
 
   if (!campaign) return;
 

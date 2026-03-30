@@ -307,13 +307,10 @@ function CampaignImageUpload({
   const handleDrop = (e: DragEvent<HTMLDivElement>) => {
     e.preventDefault();
     e.currentTarget.classList.remove("border-primary/50", "bg-muted/50");
-
-    console.log("Drop: ", e.dataTransfer);
   };
 
   const handleFilesChange = (e: ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0];
-    console.log("img: ", e.target.files);
 
     if (file) {
       if (file.size > 5 * 1024 * 1024) {

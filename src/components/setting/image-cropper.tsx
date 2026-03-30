@@ -80,8 +80,8 @@ export function ImageCropper(props: ImageCropperProps) {
     try {
       setCroppedImage(croppedImageUrl);
       setDialogOpen(false);
-    } catch (error) {
-      console.log(error);
+    } catch {
+      //
     }
   }
 

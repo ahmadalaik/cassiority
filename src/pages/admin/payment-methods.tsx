@@ -11,7 +11,6 @@ import { usePaymentMethods } from "@/hooks/public/use-payment-methods";
 export default function PaymentMethodsPage() {
   const campaignsColumns = usePaymentMethodsColumns();
   const { data: paymentMethods, isLoading } = usePaymentMethods();
-  console.log(paymentMethods);
 
   return (
     <>

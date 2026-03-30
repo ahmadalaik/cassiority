@@ -28,7 +28,7 @@ export default function DonationConfirmationPage() {
 
   const { data: campaign } = useGetCampaign(campaignSlug || "");
   const { createDonation } = useUserActions();
-  const { mutateAsync } = createDonation;
+  const { mutateAsync, isPending } = createDonation;
 
   const { data: payments } = usePaymentMethods();
 
@@ -204,7 +204,11 @@ export default function DonationConfirmationPage() {
               </FieldGroup>
             </form>
 
-            <Button type="submit" form="donation-confirmation-form">
+            <Button
+              type="submit"
+              form="donation-confirmation-form"
+              disabled={isPending}
+            >
               Confirm My Donation
             </Button>
           </div>
@@ -258,13 +262,10 @@ function ProofImageUpload({
   const handleDrop = (e: DragEvent<HTMLDivElement>) => {
     e.preventDefault();
     e.currentTarget.classList.remove("border-primary/50", "bg-muted/50");
-
-    console.log("Drop: ", e.dataTransfer);
   };
 
   const handleFilesChange = (e: ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0];
-    console.log("img: ", e.target.files);
 
     if (file) {
       if (file.size > 5 * 1024 * 1024) {

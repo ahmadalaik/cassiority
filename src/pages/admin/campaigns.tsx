@@ -8,7 +8,6 @@ import { useAdminSearchCampaigns } from "@/hooks/admin/use-admin-campaigns";
 
 export default function CampaignsManagePage() {
   const { data: campaigns, isLoading } = useAdminSearchCampaigns();
-  console.log("data: ", campaigns);
 
   return (
     <>

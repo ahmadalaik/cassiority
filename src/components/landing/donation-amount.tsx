@@ -55,7 +55,6 @@ export default function DonationAmount() {
       return;
     }
 
-    console.log("Data Donasi Disimpan:", data);
     navigate(`/checkout/${campaignSlug}/${finalAmount}`, {
       state: { from: location.pathname },
     });

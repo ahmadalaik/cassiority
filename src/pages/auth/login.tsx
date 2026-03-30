@@ -19,7 +19,6 @@ import { useAuthActions } from "@/hooks/use-auth";
 import { loginSchema, type Login } from "@/schema/login";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Loader2 } from "lucide-react";
-import { useEffect } from "react";
 import { Controller, useForm } from "react-hook-form";
 import { Link } from "react-router-dom";
 
@@ -35,17 +34,8 @@ export default function Login() {
   });
 
   const onSubmit = (data: Login) => {
-    console.log("login: ", data);
     loginMutation.mutate(data);
   };
-
-  useEffect(() => {
-    document.body.classList.remove("bg-sidebar");
-
-    return () => {
-      document.body.classList.add("bg-sidebar");
-    };
-  }, []);
 
   return (
     <div className="flex min-h-svh w-full items-center justify-center">

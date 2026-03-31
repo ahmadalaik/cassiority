@@ -15,7 +15,6 @@ import {
   SidebarMenuItem,
 } from "@/components/ui/sidebar";
 import { useLocation } from "react-router-dom";
-import { useAuth } from "@/hooks/use-auth";
 
 const getPrefix = (role: string) => {
   if (role === "admin") return "/admin";
@@ -84,12 +83,11 @@ const getNavMain = (role: string) => {
   ].filter((item) => item.roles.includes(role));
 };
 
-export function NavMain() {
-  const { data: user } = useAuth();
+export function NavMain({ role }: { role: string }) {
   const location = useLocation();
   const pathname = location.pathname;
 
-  const sideNav = getNavMain(user?.role);
+  const sideNav = getNavMain(role);
 
   return (
     <SidebarGroup>

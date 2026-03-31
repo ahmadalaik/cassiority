@@ -20,12 +20,19 @@ import { useAuthStore } from "@/stores/use-auth-store";
 import { useAuthActions } from "@/hooks/use-auth";
 import { useNavigate } from "react-router-dom";
 
-export function NavUser() {
+const getPrefix = (role: string) => {
+  if (role === "admin") return "/admin";
+  if (role === "fundraiser") return "/fundraiser";
+  return "";
+};
+
+export function NavUser({ role }: { role: string }) {
   const { isMobile } = useSidebar();
   const { user } = useAuthStore();
   const { logoutMutation } = useAuthActions();
 
   const navigate = useNavigate();
+  const prefix = getPrefix(role);
 
   const handleLogout = () => {
     logoutMutation.mutate();
@@ -71,7 +78,7 @@ export function NavUser() {
             </DropdownMenuLabel>
             <DropdownMenuSeparator />
             <DropdownMenuGroup>
-              <DropdownMenuItem onClick={() => navigate("/dashboard/setting")}>
+              <DropdownMenuItem onClick={() => navigate(`${prefix}/dashboard/setting`)}>
                 <Settings />
                 Setting
               </DropdownMenuItem>

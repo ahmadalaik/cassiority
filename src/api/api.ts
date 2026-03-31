@@ -2,7 +2,7 @@
 import { useAuthStore } from "@/stores/use-auth-store";
 import axios from "axios";
 
-const BASE_URL = "http://localhost:3000/api";
+const BASE_URL = "https://server-cassiority.miraeecode.my.id/api";
 
 const API = axios.create({
   //set default endpoint API
